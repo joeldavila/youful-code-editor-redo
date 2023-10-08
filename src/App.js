@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/Button';
 import Editor from './components/Editor';
 
+
 function App() {
     const [openedEditor, setOpenedEditor] = useState('html');
 
@@ -27,7 +28,9 @@ function App() {
         `
             )
         }, 250);
-        return () => clearTimeout(timeOut)
+        return () => {
+            clearTimeout(timeOut)
+        }
     }, [html, python, css, js])
 
     const onTabClick = (editorName) => {
@@ -51,6 +54,7 @@ function App() {
                     onTabClick('js')
                 }}/>
             </div>
+
             <div className="editor-container">
                 {
                     openedEditor === 'html' ? (
