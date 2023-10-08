@@ -5,7 +5,9 @@ import Editor from './components/Editor';
 
 function App() {
     const [openedEditor, setOpenedEditor] = useState('html');
+
     const [html, setHtml] = useState('');
+    const [python, setPython] = useState(''); // Added Python
     const [css, setCss] = useState('');
     const [js, setJs] = useState('');
     const [srcDoc, setSrcDoc] = useState(` `);
@@ -17,13 +19,16 @@ function App() {
           <html>
             <body>${html}</body>
             <style>${css}</style>
-            <script>${js}</script>
+            <script>
+                ${js} 
+                ${python}
+            </script>
           </html>
         `
             )
         }, 250);
         return () => clearTimeout(timeOut)
-    }, [html, css, js])
+    }, [html, python, css, js])
 
     const onTabClick = (editorName) => {
         setOpenedEditor(editorName);
@@ -35,34 +40,47 @@ function App() {
             <div className="tab-button-container">
                 <Button title="HTML" onClick={() => {
                     onTabClick('html')
-                }} />
+                }}/>
+                <Button title="Python" onClick={() => {
+                    onTabClick('python')
+                }}/>
                 <Button title="CSS" onClick={() => {
                     onTabClick('css')
-                }} />
+                }}/>
                 <Button title="JavaScript" onClick={() => {
                     onTabClick('js')
-                }} />
+                }}/>
             </div>
             <div className="editor-container">
                 {
                     openedEditor === 'html' ? (
+                        <><p>The HTML editor is open</p>
                         <Editor
                             language="xml"
                             value={html}
                             setEditorState={setHtml}
-                        />
-                    ) : openedEditor === 'css' ? (
+                        /></>
+                    ) : openedEditor === 'python' ? (
+                        <><p>The Python editor is open!</p>
+                        <Editor
+                          language="python"
+                          value={python}
+                          setEditorState={setPython}
+                        /> </>
+                      ) : openedEditor === 'css' ? (
+                        <><p>The CSS editor is open!</p>
                         <Editor
                             language="css"
                             value={css}
                             setEditorState={setCss}
-                        />
+                        /></>
                     ) : (
+                        <><p>The JavaScript editor is open</p>
                         <Editor
                             language="javascript"
                             value={js}
                             setEditorState={setJs}
-                        />
+                        /></>
                     )
                 }
             </div>
