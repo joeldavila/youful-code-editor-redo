@@ -26,7 +26,7 @@ function App() {
             </script>
           </html>
         `
-            )
+        )
         }, 250);
         return () => {
             clearTimeout(timeOut)
