@@ -10,3 +10,8 @@ body {
 .editor-container{
   padding-top: 0.4%;
 }
+
+button{
+  color: blue;
+  border-radius:20px 0 20px 0;
+}
