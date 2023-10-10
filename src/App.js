@@ -45,9 +45,9 @@ function App() {
                 <Button title="HTML" onClick={() => {
                     onTabClick('html')
                 }}/>
-                <Button title="Python" onClick={() => {
-                    onTabClick('python')
-                }}/>
+                {/* <Button title="Python" onClick={() => {
+                    onTabClick('python') // Python Button
+                }}/> */}
                 <Button title="CSS" onClick={() => {
                     onTabClick('css')
                 }}/>
