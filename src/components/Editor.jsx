@@ -10,6 +10,7 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/css/css';
 import 'codemirror/addon/edit/closetag';
 import 'codemirror/addon/edit/closebrackets';
+// import 'codemirror/mode/python/python';
 // import pyodide from 'pyodide';
 // import { PythonShell } from 'react-codemirror2';
 // import { Pyodide } from '@pyodide/pyodide';
