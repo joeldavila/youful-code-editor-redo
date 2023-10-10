@@ -1,4 +1,5 @@
 
+// This is for the chat component.
 const WebSocket = require('ws');
 const express = require('express');
 const http = require('http');
@@ -21,3 +22,4 @@ wss.on('connection', (ws) => {
 server.listen(8080, () => {
   console.log('WebSocket server is running on port 8080');
 });
+
