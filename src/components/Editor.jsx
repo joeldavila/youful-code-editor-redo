@@ -55,14 +55,14 @@ const Editor = ({ language, value, setEditorState }) => {
             {
                 // language === 'python' && pyodide ? (
                 //     <PythonShell
-                //     pyodide={pyodide}
-                //     code={value}
-                //     onStdout={(output) => console.log(output)} // You can handle Python output here
-                //     onStderr={(error) => console.error(error)} // You can handle Python errors here
-                //     className="code-mirror-wrapper"
-                //     options={{
-                //         theme: theme,
-                //     }}
+                    //     pyodide={pyodide}
+                    //     code={value}
+                    //     onStdout={(output) => console.log(output)} // You can handle Python output here
+                    //     onStderr={(error) => console.error(error)} // You can handle Python errors here
+                    //     className="code-mirror-wrapper"
+                    //     options={{
+                    //         theme: theme,
+                    //     }}
                 //     />
                 // ) : (
             
