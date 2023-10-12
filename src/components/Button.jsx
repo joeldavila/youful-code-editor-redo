@@ -3,11 +3,12 @@ const Button = ({title, onClick}) => {
     return (
         <div>
             <button
+                className = "button"
                 style={{
                     maxWidth: "140px",
                     minWidth: "80px",
-                    height: "30px",
-                    marginRight: "5px"
+                    height: "50px",
+                    marginRight: "5px",
                 }}
                 onClick={onClick}
             >

@@ -11,7 +11,63 @@ body {
   padding-top: 0.4%;
 }
 
-button{
-  color: blue;
-  border-radius:20px 0 20px 0;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-color: lightblue; */
+  background: rgb(2,0,36);
+  background: linear-gradient(270deg, rgba(2,0,36,1) 0%, 
+            rgba(9,9,121,1) 31%, rgba(0,212,255,1) 100%);
+}
+
+iframe{
+  /* background-color: blue; */
+  background: rgb(34,193,195);
+  background: linear-gradient(90deg, rgba(34,193,195,1) 0%, 
+            rgba(253,187,45,1) 100%);
+}
+
+.button{
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+  padding: 0.7em 2em;
+  border-radius: 65px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+  -webkit-transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  color: white;
+}
+
+.button .text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+}
+
+.button:after{
+  content: "";
+  border-radius: 18px;
+  position: absolute;
+  margin: 4px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: #0e0e10;
+}
+
+.button:hover{
+  background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+  box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
+}
+
+.button:hover .text{
+  background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
 }
