@@ -19,7 +19,13 @@ app.use('/auth', authRoutes);
 app.use('/sessions', sessionsRoutes);
 
 // Session and Passport initialization
-app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
+app.use(session({ 
+    secret: 'your-secret-key', // Replace with a strong and random secret
+    resave: false,             // Don't save session data on every request, originally true
+    saveUninitialized: false,  // Don't save uninitialized sessions, originally true
+    cookie: { secure: false }, // Set 'secure' to true for HTTPS
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
