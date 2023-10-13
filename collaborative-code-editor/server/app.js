@@ -5,6 +5,9 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const LocalStrategy = require('passport-local').Strategy;
+const { check, validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+const helmet = require('helmet');
 
 const app = express();
 const port = 3001; // Change this to your desired port number
@@ -169,11 +172,40 @@ app.get('/sessions/:id', ensureAuthenticated, (req, res) => {
       res.redirect('/dashboard');
     }
 });
+
+// Registration route
+app.post('/register', [
+    check('username').isLength({ min: 3 }).trim().escape(),
+    check('password').isLength({ min: 6 }),
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
   
+    const { username, password } = req.body;
+  
+    // Hash the password securely using bcrypt
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+      
+      // Store the username and hashed password in your database
+      // Ensure to sanitize inputs when inserting into the database
+  
+        res.status(201).json({ message: 'Registration successful' });
+    });
+});
+  
+
 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+app.use(express.json());
+app.use(helmet());
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
