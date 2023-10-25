@@ -8,8 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Copy local directories to the current local directory of our docker image (/app)
-COPY ./collaborative-code-editor/ ./collaborative-code-editor/
-COPY ./server.js ./server.js
+COPY . .
 
 # Install node packages, install serve, build the app, and remove dependencies at the end
 RUN npm install 
